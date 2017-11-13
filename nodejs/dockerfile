@@ -1,0 +1,17 @@
+FROM ubuntu:latest
+MAINTAINER steven.stevanus@indosystem.com
+ADD . /app
+WORKDIR /app/payment
+RUN apt-get update
+RUN apt-get install -y curl
+RUN curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
+RUN bash nodesource_setup.sh
+RUN apt-get install -y iputils-ping net-tools
+RUN apt-get install -y nodejs
+#RUN apt-get install -y npm
+RUN apt-get install -y python python-pip
+RUN npm install -g pm2
+RUN npm install
+EXPOSE 9000
+#CMD npm start
+CMD ping 8.8.8.8

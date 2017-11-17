@@ -3,9 +3,8 @@ MAINTAINER steven.stevanus@indosystem.com
 ADD . /app
 WORKDIR /app/payment
 RUN apt-get update
-RUN apt-get install -y iputils-ping net-tools nano curl nginx iptables varnish
+RUN apt-get install -y iputils-ping net-tools nano curl nginx iptables
 RUN cp /app/default /etc/nginx/sites-enabled/default
-RUN timedatectl set-timezone 'Asia/Jakarta'
 #RUN cp /app/default.vcl /etc/varnish/default.vcl
 #RUN cp /app/varnish /etc/default/varnish
 #RUN echo fs.inotify.max_user_watches=582222 | tee -a /etc/sysctl.conf && sysctl -p

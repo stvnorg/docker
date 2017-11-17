@@ -13,7 +13,7 @@ def run_mongodb():
 	os.system("su mongodb -c 'mongod --fork --dbpath /data/mongodb --logpath /var/log/mongodb/mongodb.log'")
 	client = MongoClient('localhost', 27017)
 	db = client['admin']
-	db.add_user('root', "0711dc4c4d7365e522ff56634e8102cf5863d5aba2818c5f02615e80ed9d347b", roles=[{'role':'userAdminAnyDatabase','db':'admin'}])
+	db.add_user('root', "0711dc4c4d7365e522ff56634e8102cf5863d5aba2818c5f02615e80ed9d347b", roles=[{'role':'root','db':'admin'}])
 	os.system("su mongodb -c 'mongod --dbpath /data/mongodb --shutdown'")
 
 	os.system("su mongodb -c 'mongod --fork --dbpath /data/mongodb --logpath /var/log/mongodb/mongodb.log'")
